@@ -5,7 +5,6 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const removeFromCart = (item) => {
     const newCart = cart.filter((itemOnCart) => itemOnCart.id !== item.id);
-    console.log(newCart);
     setCart(newCart);
   };
   const addToCart = (item) => {
@@ -14,8 +13,14 @@ export const CartProvider = ({ children }) => {
       setCart([...cart, item]);
     }
   };
+  const finalPrice = cart.reduce(
+    (acumulador, item) => acumulador + item.preço,
+    0
+  );
   return (
-    <CartContext.Provider value={{ cart, setCart, removeFromCart, addToCart }}>
+    <CartContext.Provider
+      value={{ cart, setCart, removeFromCart, addToCart, finalPrice }}
+    >
       {children}
     </CartContext.Provider>
   );

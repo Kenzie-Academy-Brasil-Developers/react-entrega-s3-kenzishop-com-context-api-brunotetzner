@@ -24,8 +24,22 @@ export const HeaderStyled = styled.header`
     align-items: center;
     flex-direction: row;
   }
+  span {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(0, 0, 0, 0.5);
+    padding: 2px;
+    border-radius: 4px;
+  }
   p {
     font-size: 12px;
+    margin: 0;
     margin-right: 2px;
+  }
+  #button-and-price {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    margin-right: 2.5%;
   }
 `;
